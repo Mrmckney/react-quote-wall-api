@@ -22,3 +22,5 @@ mongoose
   })
   .catch(err => console.log(err))
 
+  const quoteRoute = require('./src/routes/quoteRoutes')
+  app.use(quoteRoute)
