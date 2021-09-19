@@ -22,5 +22,8 @@ mongoose
   })
   .catch(err => console.log(err))
 
-  const quoteRoute = require('./src/routes/quoteRoutes')
-  app.use(quoteRoute)
+const quoteRoute = require('./src/routes/quoteRoutes')
+app.use(quoteRoute)
+
+const userRoute = require('./src/routes/userRoutes')
+app.use(userRoute)
