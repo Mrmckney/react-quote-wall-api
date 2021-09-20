@@ -17,10 +17,8 @@ exports.createUser = (req, res) => {
 }
 
 exports.loginUser = (req, res ) => {
-    console.log(req.body)
     User.findOne({ email: req.body.email})
     .then(user => {
-        console.log(user)
         if (!user || user.password !== req.body.password) {
             res.send({
                 message: 'Login Attempt Failed',
@@ -32,7 +30,7 @@ exports.loginUser = (req, res ) => {
           res.status(200).send({
             message: "User login successful",
             status: 200,
-            user,
+            user
           })
             return
         } 
