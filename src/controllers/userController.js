@@ -10,10 +10,18 @@ exports.createUser = (req, res) => {
             user
         })
     })
-    .catch(err => res.status(500).send({
+    .catch(err => {
+        if(err.code === 11000){
+            res.send({
+                message: "Email is taken",
+                status: 500
+            })
+        }
+        else {
+        res.status(500).send({
         message: "Missing email or password",
         status: 500
-    }))
+    })}})
 }
 
 exports.loginUser = (req, res ) => {
